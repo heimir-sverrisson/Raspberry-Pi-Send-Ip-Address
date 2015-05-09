@@ -1,0 +1,13 @@
+auto lo wlan0
+allow-hotplug wlan0
+
+iface lo inet loopback
+iface eth0 inet dhcp
+    up /usr/local/bin/send_ip_address.py
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface default inet dhcp
+
+iface wlan0 inet dhcp
+    up /usr/local/bin/send_ip_address.py
